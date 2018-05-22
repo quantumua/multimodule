@@ -1,6 +1,6 @@
 package my.demo.app2.autoconfigurable;
 
-import my.libs.hello.HelloService;
+import my.demo.starters.hello.helloservice.HelloService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;

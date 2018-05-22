@@ -5,27 +5,33 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>my.demo</groupId>
-        <artifactId>multi-module-applications</artifactId>
+        <groupId>my.demo.starters</groupId>
+        <artifactId>hello</artifactId>
         <version>${revision}</version>
     </parent>
 
+
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>app2</artifactId>
+    <artifactId>hello-autoconfiguration</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+            <optional>true</optional>
         </dependency>
-
+        <!--We need configuration processor to get automatic code completion for supported custom properties (via @ConfigurationProperties) in IDE-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
         <dependency>
             <groupId>my.demo.starters</groupId>
-            <artifactId>hello-starter</artifactId>
+            <artifactId>hello-service</artifactId>
             <version>${revision}</version>
         </dependency>
     </dependencies>
-
 
 </project>
