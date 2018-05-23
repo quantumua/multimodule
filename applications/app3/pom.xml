@@ -23,6 +23,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!--We need configuration processor to get automatic code completion for supported custom properties (via @ConfigurationProperties) in IDE-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
@@ -44,8 +46,45 @@
             <artifactId>conditional2-starter</artifactId>
             <version>${revision}</version>
         </dependency>
-
+<!--Demonstrate failing build due to been banned with maven-enforcer-plugin -->
+        <!--<dependency>-->
+            <!--<groupId>my.demo</groupId>-->
+            <!--<artifactId>lib1</artifactId>-->
+            <!--<version>${revision}</version>-->
+        <!--</dependency>-->
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <!--Checks the dependencies and fails if any of the matching excludes are found-->
+                <!--Could be used to manage black-list dependencies for each module-->
+                <!--https://maven.apache.org/enforcer/enforcer-rules/bannedDependencies.html-->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <executions>
+                    <execution>
+                        <id>enforce-banned-dependencies</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <bannedDependencies>
+                                    <excludes>
+                                        <exclude>my.demo:lib*</exclude>
+                                    </excludes>
+                                    <searchTransitive>false</searchTransitive>
+                                </bannedDependencies>
+                            </rules>
+                            <fail>true</fail>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
