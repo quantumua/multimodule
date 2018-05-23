@@ -18,6 +18,7 @@
     <modules>
         <module>hello</module>
         <module>conditional1</module>
+        <module>conditional2</module>
     </modules>
 
 </project>

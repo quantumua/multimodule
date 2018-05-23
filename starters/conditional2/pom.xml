@@ -5,47 +5,30 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>my.demo</groupId>
-        <artifactId>multi-module-applications</artifactId>
+        <groupId>my.demo.starters</groupId>
+        <artifactId>multi-module-starters</artifactId>
         <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>app3</artifactId>
+    <artifactId>conditional2-starter</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-
-        <dependency>
-            <groupId>my.demo.starters</groupId>
-            <artifactId>conditional1-starter</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>my.demo.starters</groupId>
-            <artifactId>conditional2-starter</artifactId>
-            <version>${revision}</version>
-        </dependency>
-
     </dependencies>
-
 
 </project>
