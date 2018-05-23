@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  my.demo.starters.conditional1.autoconfiguration.Conditional1AutoConfiguration,\
+  my.demo.starters.conditional1.autoconfiguration.web.Conditional1WebAutoConfiguration
