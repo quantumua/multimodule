@@ -1,0 +1,16 @@
+#default active profile
+spring:
+  profiles:
+    active: dev
+
+
+my.demo.starter.module:
+  conditional1:
+    enable
+my:
+  demo:
+    starter:
+      module:
+        conditional2:
+            enable:
+                  true

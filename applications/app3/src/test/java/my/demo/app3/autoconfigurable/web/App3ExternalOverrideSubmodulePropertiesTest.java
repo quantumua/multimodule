@@ -15,21 +15,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(properties = {"my.demo.starter.module.conditional2.enable=true"})
+@SpringBootTest(properties = {"my.demo.starter.module.conditional2.enable=true", "my.demo.starter.module.conditional2.environment=" + App3ExternalOverrideSubmodulePropertiesTest.OVERRIDDEN_SUBMODULE_PROPERTY_VALUE})
 @AutoConfigureMockMvc
-public class App3OneModuleEnabledWebContextTest {
+public class App3ExternalOverrideSubmodulePropertiesTest {
 
+
+    static final String OVERRIDDEN_SUBMODULE_PROPERTY_VALUE = "OVERRIDDEN";
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    public void shouldReturnCond1ServiceName() throws Exception {
-        this.mockMvc.perform(get("/cond1/service")).andDo(print()).andExpect(status().isNotFound());
-    }
-
-    @Test
-    public void shouldReturnCond2ServiceName() throws Exception {
-        this.mockMvc.perform(get("/cond2/service")).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString( "my.demo.starters.conditional2.service.impl.Cond2ServiceImpl")));
+    public void shouldOverrideSubmodelProperty() throws Exception {
+        this.mockMvc.perform(get("/cond2/environment")).andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString( "my.demo.starters.conditional2.service.impl.Cond2ServiceImpl run in " + OVERRIDDEN_SUBMODULE_PROPERTY_VALUE)));
     }
 }

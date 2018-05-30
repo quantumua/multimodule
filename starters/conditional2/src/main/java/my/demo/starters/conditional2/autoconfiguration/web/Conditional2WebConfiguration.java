@@ -27,4 +27,11 @@ public class Conditional2WebConfiguration {
         return service.getServiceName();
     }
 
+    @GetMapping("/environment")
+    public String getEnvironment(){
+        return service.getEnvironment();
+    }
+
+
+
 }

@@ -1,7 +1,7 @@
 # app3
 A demo of building configurable context from starters. 
 
-Starters are enabled by setting appropriated properties in application.properties (or from system variables).
+Starters are enable by setting appropriated properties in application.properties (or from system variables).
 
 See tests as example of property-driven context configuration.
 

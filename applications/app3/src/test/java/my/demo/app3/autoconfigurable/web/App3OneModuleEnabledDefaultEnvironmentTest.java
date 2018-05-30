@@ -17,19 +17,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest(properties = {"my.demo.starter.module.conditional2.enable=true"})
 @AutoConfigureMockMvc
-public class App3OneModuleEnabledWebContextTest {
-
+public class App3OneModuleEnabledDefaultEnvironmentTest {
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    public void shouldReturnCond1ServiceName() throws Exception {
-        this.mockMvc.perform(get("/cond1/service")).andDo(print()).andExpect(status().isNotFound());
-    }
-
-    @Test
-    public void shouldReturnCond2ServiceName() throws Exception {
-        this.mockMvc.perform(get("/cond2/service")).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString( "my.demo.starters.conditional2.service.impl.Cond2ServiceImpl")));
+    public void shouldReturnCond2EnvironmentName() throws Exception {
+        this.mockMvc.perform(get("/cond2/environment")).andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString( "my.demo.starters.conditional2.service.impl.Cond2ServiceImpl run in development")));
     }
 }

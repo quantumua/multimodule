@@ -13,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(SpringRunner.class)
 //set system variables to enable all modules
-@SpringBootTest(properties = {"my.demo.starter.module.conditional1=enable", "my.demo.starter.module.conditional2=enable"})
+@SpringBootTest(properties = {"my.demo.starter.module.conditional1=enable", "my.demo.starter.module.conditional2.enable=true"})
 public class App3AllModulesEnabledContextTest {
 
     @Autowired

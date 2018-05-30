@@ -13,7 +13,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(SpringRunner.class)
-//set system variables to enable all modules
+//set system variables to enable only conditional1 module
 @SpringBootTest(properties = {"my.demo.starter.module.conditional1=enable"})
 public class App3OneModuleEnabledContextTest {
 

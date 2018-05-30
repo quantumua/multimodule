@@ -1,0 +1,5 @@
+#/overrides application.properties from main for test context
+#default active profile
+spring:
+  profiles:
+    active: dev
